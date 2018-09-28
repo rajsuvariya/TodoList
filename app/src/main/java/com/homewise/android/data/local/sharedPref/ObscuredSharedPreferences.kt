@@ -1,11 +1,10 @@
-package com.homewise.android.data.local
+package com.homewise.android.data.local.sharedPref
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.provider.Settings
 import android.util.Base64
 import android.util.Log
-import java.nio.charset.Charset
 import javax.crypto.Cipher
 import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.PBEKeySpec

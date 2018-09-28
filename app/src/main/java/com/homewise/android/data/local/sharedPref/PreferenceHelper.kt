@@ -1,4 +1,4 @@
-package com.homewise.android.data.local
+package com.homewise.android.data.local.sharedPref
 
 import android.content.Context
 import com.homewise.android.injection.ApplicationContext

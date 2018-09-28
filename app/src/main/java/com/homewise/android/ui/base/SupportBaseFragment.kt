@@ -2,12 +2,9 @@ package com.homewise.android.ui.base
 
 import android.app.Activity
 import android.app.Fragment
-import android.arch.lifecycle.LifecycleFragment
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.StringRes
-import android.widget.Toast
 import com.homewise.android.HomeWiseApplication
 import com.homewise.android.injection.component.DaggerFragmentComponent
 import com.homewise.android.injection.component.FragmentComponent
@@ -18,7 +15,7 @@ import com.homewise.android.utils.KeyboardUtils
  * Created by @raj on 27/12/17.
  */
 
-abstract class SupportBaseFragment : LifecycleFragment(), MvpView {
+abstract class SupportBaseFragment : Fragment(), MvpView {
 
     var baseActivity: BaseActivity? = null
     private var mFragmentComponent: FragmentComponent? = null

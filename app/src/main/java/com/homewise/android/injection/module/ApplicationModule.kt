@@ -5,8 +5,9 @@ import android.content.Context;
 
 import com.homewise.android.data.AppDataManager;
 import com.homewise.android.data.DataManager;
-import com.homewise.android.data.local.AppPreferenceManager;
-import com.homewise.android.data.local.PreferenceManager;
+import com.homewise.android.data.local.database.TodoDatabase
+import com.homewise.android.data.local.sharedPref.AppPreferenceManager;
+import com.homewise.android.data.local.sharedPref.PreferenceManager;
 import com.homewise.android.data.remote.ApiManager;
 import com.homewise.android.data.remote.AppApiManager;
 import com.homewise.android.injection.ApplicationContext;
@@ -49,5 +50,10 @@ class ApplicationModule(private val mApplication: Application) {
     @Singleton
     internal fun providePreferenceManager(appPreferenceManager: AppPreferenceManager): PreferenceManager {
         return appPreferenceManager
+    }
+
+    @Provides
+    internal fun provideTodoDatabase(@ApplicationContext context: Context): TodoDatabase {
+        return TodoDatabase.getInstance(context)
     }
 }

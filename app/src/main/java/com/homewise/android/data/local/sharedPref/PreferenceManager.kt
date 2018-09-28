@@ -1,4 +1,4 @@
-package com.homewise.android.data.local
+package com.homewise.android.data.local.sharedPref
 
 /**
  * Created by @raj on 26/12/17.

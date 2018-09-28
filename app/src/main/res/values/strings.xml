@@ -1,6 +1,12 @@
 <resources>
-    <string name="app_name">HomeWise</string>
+    <string name="app_name">Todo List</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="tag">Tag</string>
+    <string name="todo_list_activity_title">Todo List</string>
+    <string name="add_new_todo_activity_title">Add new todo</string>
+    <string name="no_todo_message">There are no todo(s) to show. Please add todo by clicking on left bottom button</string>
 </resources>

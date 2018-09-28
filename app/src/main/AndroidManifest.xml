@@ -28,14 +28,18 @@
             android:name="io.fabric.ApiKey"
             android:value="96695339352426996e84de859c22b5ca8ce6f345" />
 
-        <activity android:name=".ui.home.HomeActivity">
+        <activity android:name=".ui.home.HomeActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.base.BaseActivity"></activity>
+        <activity android:name=".ui.base.BaseActivity" />
+        <activity
+            android:name=".ui.addTodo.AddTodoActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>
