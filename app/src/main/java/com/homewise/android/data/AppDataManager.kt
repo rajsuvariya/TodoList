@@ -19,7 +19,6 @@ import javax.inject.Inject
  * Created by @raj on 26/12/17.
  */
 class AppDataManager @Inject constructor(preferenceManager: PreferenceManager, apiManager: ApiManager) : DataManager {
-
     private val mPreferenceManager: PreferenceManager = preferenceManager
     private val mApiManager: ApiManager = apiManager
     @Inject
@@ -56,4 +55,7 @@ class AppDataManager @Inject constructor(preferenceManager: PreferenceManager, a
         return mDatabase.productDao().all
     }
 
+    override fun getFilteredTodoList(query: String): Single<List<TodoModel>> {
+        return mDatabase.productDao().findByTag(query)
+    }
 }

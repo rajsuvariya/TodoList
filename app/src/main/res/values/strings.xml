@@ -9,4 +9,5 @@
     <string name="todo_list_activity_title">Todo List</string>
     <string name="add_new_todo_activity_title">Add new todo</string>
     <string name="no_todo_message">There are no todo(s) to show. Please add todo by clicking on left bottom button</string>
+    <string name="search_title">Search Todo(s)</string>
 </resources>

@@ -1,19 +1,20 @@
 package com.homewise.android.ui.home
 
 import android.content.Intent
-import android.graphics.Canvas
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
+import android.view.Menu
+import android.view.View
+import android.widget.SearchView
 import com.homewise.android.R
 import com.homewise.android.data.models.TodoModel
 import com.homewise.android.ui.addTodo.AddTodoActivity
 import com.homewise.android.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_base.*
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
-import android.support.v7.widget.helper.ItemTouchHelper
-import android.support.v7.widget.RecyclerView
-import android.view.View
-import kotlinx.android.synthetic.main.activity_base.*
 
 
 class HomeActivity : BaseActivity(), HomeMvpView, RecyclerviewItemTouchListener.RecyclerItemTouchHelperListener {
@@ -22,6 +23,7 @@ class HomeActivity : BaseActivity(), HomeMvpView, RecyclerviewItemTouchListener.
     lateinit var mPresenter: HomeMvpPresenter<HomeMvpView>
 
     private lateinit var adapter: TodoListAdapter
+    private lateinit var mSearchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,5 +68,23 @@ class HomeActivity : BaseActivity(), HomeMvpView, RecyclerviewItemTouchListener.
 
     override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int, position: Int) {
         mPresenter.deleteTodo(adapter.mList[position])
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        mSearchView = menu!!.findItem(R.id.search).actionView as SearchView
+        mSearchView.maxWidth = Integer.MAX_VALUE
+        mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                mPresenter.searchTodos(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                mPresenter.searchTodos(newText)
+                return false
+            }
+        })
+        return true
     }
 }

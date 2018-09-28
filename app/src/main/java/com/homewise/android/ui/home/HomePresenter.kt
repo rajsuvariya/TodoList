@@ -48,4 +48,22 @@ class HomePresenter<T : HomeMvpView> @Inject constructor(dataManager: DataManage
                         }))
     }
 
+    override fun searchTodos(query: String) {
+        if (query.isNullOrEmpty()) {
+            initView()
+        } else {
+            compositeDisposable.add(
+                    getDataManager().getFilteredTodoList(query)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe { r ->
+                                getMvpView().updateTodoList(r)
+                                if (r.isEmpty()) {
+                                    getMvpView().showNoTodoMessage()
+                                }
+                            }
+            )
+        }
+
+    }
 }

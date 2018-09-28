@@ -11,7 +11,7 @@ interface TodoDao {
     val all: Single<List<TodoModel>>
 
     @Query("SELECT * FROM todomodel WHERE tag LIKE :tag")
-    fun findByTag(tag: String): List<TodoModel>
+    fun findByTag(tag: String): Single<List<TodoModel>>
 
     @Insert
     fun insert(todoItem: TodoModel)

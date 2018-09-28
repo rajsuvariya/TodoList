@@ -12,4 +12,5 @@ interface DataManager : ApiManager, PreferenceManager {
     fun addTodo(title: String, description: String, tag: String): Single<Unit>
     fun getTodoList(): Single<List<TodoModel>>
     fun deleteTodo(todo: TodoModel): Single<Unit>
+    fun getFilteredTodoList(query: String): Single<List<TodoModel>>
 }

@@ -7,4 +7,5 @@ import com.homewise.android.ui.base.MvpView
 interface HomeMvpPresenter<T: MvpView>: MvpPresenter<T> {
     fun initView()
     fun deleteTodo(todo: TodoModel)
+    fun searchTodos(query: String)
 }
