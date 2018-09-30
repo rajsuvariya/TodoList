@@ -56,6 +56,7 @@ class AppDataManager @Inject constructor(preferenceManager: PreferenceManager, a
     }
 
     override fun getFilteredTodoList(query: String): Single<List<TodoModel>> {
-        return mDatabase.productDao().findByTag(query)
+        val new_query = "%$query%"
+        return mDatabase.productDao().findByTag(new_query)
     }
 }

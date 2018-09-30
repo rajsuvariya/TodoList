@@ -10,8 +10,7 @@ import com.homewise.android.R
 import com.homewise.android.data.models.TodoModel
 
 class TodoListAdapter(val mList: MutableList<TodoModel>): RecyclerView.Adapter<TodoListAdapter.TodoItemViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TodoItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoItemViewHolder {
         val view = LayoutInflater.from(parent!!.context).inflate(R.layout.raw_todo_list, parent, false);
         return TodoItemViewHolder(view)
     }
@@ -32,7 +31,7 @@ class TodoListAdapter(val mList: MutableList<TodoModel>): RecyclerView.Adapter<T
         notifyDataSetChanged()
     }
 
-    class TodoItemViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    class TodoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val viewForeground = itemView!!.findViewById<ConstraintLayout>(R.id.view_foreground)
         val viewBackground = itemView!!.findViewById<ConstraintLayout>(R.id.view_background)
         val tvTitle = itemView!!.findViewById<TextView>(R.id.tv_title)
